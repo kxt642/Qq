@@ -5,26 +5,41 @@
 package com.qq.client.view;
 
 import com.qq.client.tools.*;
+
 import com.qq.client.model.*;
 import com.qq.common.*;
 import javax.swing.*;
+
+
+
 import java.awt.*;
 import java.awt.event.*;
 import java.io.*;
+
+
 public class QqChat extends JFrame implements ActionListener{
 
-	JTextArea jta;
-	JTextField jtf;
-	JButton jb;
-	JButton jb1;//自己添加
+	private JTextArea jta;
+	public static JTextField jtf;
+	JButton jb;//sendButton
+	JButton jb1;//自己添加第一次
 	JPanel jp;
 	String ownerId;
 	String friendId;
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		//QqChat qqChat=new QqChat("1");
+		try {
+			String lookAndFeel = "com.sun.java.swing.plaf.windows.WindowsLookAndFeel";
+			UIManager.setLookAndFeel(lookAndFeel);
+		} catch (Exception e) {
+		
+		}
 	}
-	
+	public  JTextField getTextFiled()
+	{
+		return this.jtf;
+	}
 	public QqChat(String ownerId,String friend)
 	{
 		this.ownerId=ownerId;
@@ -33,14 +48,14 @@ public class QqChat extends JFrame implements ActionListener{
 		jtf=new JTextField(15);
 		jb=new JButton("发送");
 		jb.addActionListener(this);
-		//自己添加
+		//自己添加第一次
 		jb1=new JButton("公式");
 		jb1.addActionListener(this);
 		
 		jp=new JPanel();
 		jp.add(jtf);
 		jp.add(jb);
-		//自己添加
+		//自己添加第一次
 		jp.add(jb1);
 		
 		this.add(jta,"Center");
@@ -59,6 +74,8 @@ public class QqChat extends JFrame implements ActionListener{
 		String info=m.getSender()+" 对 "+m.getGetter()+" 说:"+m.getCon()+"\r\n";
 		this.jta.append(info);
 	}
+	
+	
 
 	public void actionPerformed(ActionEvent arg0) {
 		// TODO Auto-generated method stub
@@ -83,14 +100,28 @@ public class QqChat extends JFrame implements ActionListener{
 				
 		}
 		
-		/*
-		//自己添加
+		
+		//自己添加第二次  3-17
 		else if(arg0.getSource()==jb1){
 			//如果用户点击了公式按钮
+//			Button GS;
+//			GS = new Button("关闭");
+//		    setLayout(new FlowLayout());
+//		    add(GS);
+//			GS.addActionListner(new HandleAct(this));
+//			addWindowListener(new HandleWin());
+//			setSize(300,200);
+//			setTitle("公式编辑");
+              new TermEditDialog();
+         
 			
-		}*/
 			
-	}
+		}	
+		
+		
+		
+
+	} 
 
 //	public void run() {
 //		// TODO Auto-generated method stub

@@ -36,6 +36,12 @@ public class QqClientLogin extends JFrame implements ActionListener{
 	
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
+		try {
+			String lookAndFeel = "com.sun.java.swing.plaf.windows.WindowsLookAndFeel";
+			UIManager.setLookAndFeel(lookAndFeel);
+		} catch (Exception e) {
+		
+		}
 		QqClientLogin qqClientLogin=new QqClientLogin();
 	}
 	
